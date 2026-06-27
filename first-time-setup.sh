@@ -44,3 +44,6 @@ echo "3.3) Sync Hooks to ~/.codex/hooks"
 [ -d ~/.codex/hooks ] || mkdir -p ~/.codex/hooks
 cp -R "$POLICY_DIR/.codex/hooks/"* "$HOME/.codex/hooks/"
 cp "$POLICY_DIR/.codex/hooks.json" "$HOME/.codex/hooks.json"
+
+echo "3.4) Sync bon to ~/.codex/bin"
+cp -R "$POLICY_DIR/.codex/bin/"* "$HOME/.codex/bin/"
