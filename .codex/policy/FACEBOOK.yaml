@@ -1,0 +1,80 @@
+policy:
+  id: facebook-access
+  name: Facebook Access Policy
+  description: Restrict AI agents from accessing Facebook unless prior IT Security approval has been granted.
+
+applies_to:
+  capabilities:
+    - Codex
+    - AI coding assistants
+    - AI automation agents
+    - Computer Use
+    - Browser Use
+    - MCP tools
+    - Playwright
+    - Selenium
+    - Puppeteer
+    - Custom automation scripts
+    - Future browser automation capabilities
+
+rules:
+  - id: FACEBOOK-001
+    match:
+      targets:
+        - type: url
+          value: https://www.facebook.com
+        - type: url
+          value: https://facebook.com
+        - type: url
+          value: https://m.facebook.com
+        - type: domain
+          value: facebook.com
+        - type: application
+          value: Facebook mobile applications
+        - type: service
+          value: Facebook APIs
+        - type: service
+          value: Facebook Business Manager
+        - type: service
+          value: Facebook Ads Manager
+        - type: service
+          value: Meta Business Suite
+        - type: service
+          value: Any Facebook-owned service when the purpose is to access Facebook content
+      actions:
+        - open_browser
+        - navigate
+        - browser_use
+        - computer_use
+        - playwright_access
+        - selenium_access
+        - puppeteer_access
+        - api_call
+        - login
+        - read_content
+        - create_post
+        - send_message
+        - upload_file
+        - download_data
+        - automated_interaction
+    decision: deny
+    message: Facebook access is restricted by company policy. Contact IT Security to request access.
+    required_response:
+      - Stop execution immediately.
+      - Do not attempt to access Facebook.
+      - Inform the user that Facebook access is restricted by company policy.
+      - Instruct the user to contact the IT Security team to request access.
+      - Do not suggest alternative methods to bypass this restriction.
+
+exception_process:
+  approval_authority: IT Security team
+  approval_process: Organization official access request process
+  agent_must_not_determine_approval: true
+
+enforcement:
+  controls:
+    - Managed hooks
+    - Approval policies
+    - Runtime security checks
+    - Browser automation controls
+  note: This file defines structured policy data. Technical enforcement is implemented separately.

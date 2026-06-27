@@ -1,0 +1,60 @@
+policy:
+  id: demoqa-practice-form-submit
+  name: DemoQA Practice Form Submit Policy
+  description: Block AI agents from submitting the DemoQA automation practice form.
+
+applies_to:
+  capabilities:
+    - Codex
+    - AI coding assistants
+    - AI automation agents
+    - Computer Use
+    - Browser Use
+    - MCP tools
+    - Playwright
+    - Selenium
+    - Puppeteer
+    - Custom automation scripts
+    - Future browser automation capabilities
+
+rules:
+  - id: DEMOQA-001
+    match:
+      url:
+        type: exact
+        value: https://demoqa.com/automation-practice-form
+      target:
+        role: button
+        text: Submit
+      actions:
+        - click
+        - activate
+        - trigger
+        - submit
+        - dispatch_event
+        - dom_method
+        - keyboard_submit
+        - script_submit
+    decision: deny
+    message: Submitting this DemoQA form is restricted by company policy.
+    required_response:
+      - Stop before performing the submit action.
+      - Do not click, activate, trigger, or bypass the Submit button.
+      - Inform the user that submitting this DemoQA form is restricted by company policy.
+      - Offer to continue with allowed non-submit actions, such as inspecting the page or filling fields without submitting.
+      - Do not suggest alternative methods to bypass this restriction.
+
+allowed_actions:
+  - navigate
+  - inspect_page
+  - read_page_content
+  - fill_form_fields_without_submitting
+
+enforcement:
+  controls:
+    - Managed hooks
+    - Approval policies
+    - Runtime security checks
+    - Browser automation controls
+    - Tool-use validation
+  note: This file defines structured policy data. Technical enforcement is implemented separately.
