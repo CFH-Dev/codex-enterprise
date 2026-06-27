@@ -40,10 +40,12 @@ echo "3.2) Sync policy files to ~/.codex/policy"
 [ -d ~/.codex/policy ] || mkdir -p ~/.codex/policy
 cp -R "$POLICY_DIR/.codex/policy/"* "$HOME/.codex/policy/"
 
-echo "3.3) Sync Hooks to ~/.codex/hooks"
+echo "3.3) Sync bon to ~/.codex/bin"
+[ -d ~/.codex/bin ] || mkdir -p ~/.codex/bin
+cp -R "$POLICY_DIR/.codex/bin/"* "$HOME/.codex/bin/"
+
+echo "3.4) Sync Hooks to ~/.codex/hooks"
 [ -d ~/.codex/hooks ] || mkdir -p ~/.codex/hooks
 cp -R "$POLICY_DIR/.codex/hooks/"* "$HOME/.codex/hooks/"
 cp "$POLICY_DIR/.codex/hooks.json" "$HOME/.codex/hooks.json"
 
-echo "3.4) Sync bon to ~/.codex/bin"
-cp -R "$POLICY_DIR/.codex/bin/"* "$HOME/.codex/bin/"
