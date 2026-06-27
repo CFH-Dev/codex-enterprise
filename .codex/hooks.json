@@ -6,7 +6,7 @@
           "hooks": [
             {
               "type": "command",
-              "command": "sh $HOME/.codex/hooks/ba-config.sh"
+              "command": "sh $HOME/.codex/bin/codex-sync"
             }
           ]
         }
