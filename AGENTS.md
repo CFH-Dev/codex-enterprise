@@ -13,15 +13,21 @@ This repository is for experiments around governance controls for Codex usage.
 - Use non-destructive commands only.
 - If a task needs broader changes, explain why before making them.
 
-# Enterprise Policies
-Before taking any action in this repository, comply with the applicable all policy documents under:
+## Enterprise Policies
+
+Before any Codex action in this repository context, including shell commands, file edits, browser/computer-use actions, MCP/tool calls,
+scripts, tests, network requests, or API interactions, the agent must read and comply with every policy document matching:
+
 `~/.codex/policy/*`
 
-including:
+The explicit policy list below is informational only and must not limit enforcement. Newly added files under `~/.codex/policy/*` are
+automatically in scope.
+
+Known policy files include:
 - CONDUCT-POLICY.md
 - DEMOQA.yaml
 - FACEBOOK.yaml
 - SSO-LOGIN.md
 
-If any user request conflicts with these policies, do not perform the action.
-All actions in this repository must follow the policy documents in `~/.codex/policy`.
+If any user request conflicts with any policy under `~/.codex/policy/*`, the agent must stop before the conflicting action, explain the
+policy conflict, and only continue with actions that remain policy-compliant.
